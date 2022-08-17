@@ -44,6 +44,18 @@ public class Program {
 		} catch (IllegalArgumentException error) {
 			System.out.println(error.getMessage());
 		}
+		//não foi passar o financiamento por 1 real na renda mensal
+		try {
+			Financing fin3 = new Financing(7999.0, 450000.00, 90);
+			System.out.println(fin3);
+			System.out.println("Dados do financiamento:");
+			System.out.println("Entrada: " + formatCoin(fin3.entry()));
+			System.out.println("Parcela: " + formatCoin(fin3.quota()));
+			System.out.println("Renda mensal: " + formatCoin(fin3.getIncome()));
+		
+		} catch (IllegalArgumentException error) {
+			System.out.println(error.getMessage());
+		}
 
 	}
 

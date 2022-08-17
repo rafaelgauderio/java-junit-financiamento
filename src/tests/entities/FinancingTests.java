@@ -22,5 +22,16 @@ public class FinancingTests {
 		Assertions.assertTrue(f1.getMonths()==80);		
 		
 	}
+	
+	@Test
+	public void constructorShouldThrowExceptionWheNotValidateFinancing () {		
+		double income = 7999.0;
+		double totalAmount = 450000.0;
+		int months = 90;	
+				
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {			
+			Financing f1 = FinancingFactory.createFinancing(income, totalAmount, months);
+		});		
+	}
 
 }
