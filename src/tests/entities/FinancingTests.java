@@ -66,7 +66,7 @@ public class FinancingTests {
 	@Test
 	public void setIncomeShouldChangeIncomeWhenValidadeFinancingWithNewIncome () {
 		
-		double income = 6000.0;
+		double income = 5001.0;
 		double totalAmount =250000.0;
 		int months = 80;		
 		Financing f1 = FinancingFactory.createFinancing(income, totalAmount, months);	
@@ -79,6 +79,21 @@ public class FinancingTests {
 		
 	}
 	
+	@Test
+	public void setIncomeShouldThrowExceptionWhenValidadeNotFinancingWithNewIncome () {
+		
+		double income = 5001.0;
+		double totalAmount =250000.0;
+		int months = 80;		
+		Financing f1 = FinancingFactory.createFinancing(income, totalAmount, months);	
+		
+		double newIncome = 4999.0;
+		
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {			
+			f1.setIncome(newIncome);
+			Assertions.assertEquals(newIncome,f1.getIncome());			
+		});
+	}
 	
 	
 
