@@ -59,13 +59,27 @@ public class FinancingTests {
 		
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {			
 			f1.setTotalAmount(newTotalAmount);
-			Assertions.assertEquals(newTotalAmount,f1.getTotalAmount());
-			
+			Assertions.assertEquals(newTotalAmount,f1.getTotalAmount());			
 		});
+	}
+	
+	@Test
+	public void setIncomeShouldChangeIncomeWhenValidadeFinancingWithNewIncome () {
 		
+		double income = 6000.0;
+		double totalAmount =250000.0;
+		int months = 80;		
+		Financing f1 = FinancingFactory.createFinancing(income, totalAmount, months);	
 		
-				
+		double newIncome = 5000.0;
+		f1.setIncome(newIncome);
+		
+		Assertions.assertEquals(newIncome,f1.getIncome());
+		
 		
 	}
+	
+	
+	
 
 }
