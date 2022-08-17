@@ -23,7 +23,7 @@ public class Program {
 		}
 
 		try {
-			Financing fin2 = new Financing(5000.0, 200000.00, 80);
+			Financing fin2 = new Financing(5000.0, 250000.00, 80);
 			System.out.println(fin2);
 			System.out.println("Dados do financiamento:");
 			System.out.printf("Entrada: %.2f%n", fin2.entry());
