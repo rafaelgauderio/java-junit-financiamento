@@ -47,5 +47,25 @@ public class FinancingTests {
 		Assertions.assertEquals(newTotalAmount,f1.getTotalAmount());		
 		
 	}
+	
+	@Test
+	public void setTotalAmountShouldThrowExceptionWhenNotValidadeFinancingWithNewTotalAmount() {
+		double income = 5000.0;
+		double totalAmount =200000.0;
+		int months = 80;		
+		Financing f1 = FinancingFactory.createFinancing(income, totalAmount, months);
+		
+		double newTotalAmount = 250001.0;
+		
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {			
+			f1.setTotalAmount(newTotalAmount);
+			Assertions.assertEquals(newTotalAmount,f1.getTotalAmount());
+			
+		});
+		
+		
+				
+		
+	}
 
 }
