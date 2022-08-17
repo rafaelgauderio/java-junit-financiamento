@@ -117,4 +117,22 @@ public class FinancingTests {
 			Assertions.assertEquals(newMonths,f1.getMonths());
 		});
 	}
+	
+	@Test
+	public void entryShoudlCalculateEntryWhenValidateFinancing () {
+		
+		Financing f1 = FinancingFactory.createFinancing(5000.0, 200000.0, 80);
+		//20 porcento de 200 mil é 40 mil		
+		Assertions.assertEquals(40000.0, f1.entry());
+	}
+	
+	@Test
+	public void quotaShouldCalculateQuotaWhenValidateFinancing () {
+		
+		Financing f1 = FinancingFactory.createFinancing(5000.0, 200000.0, 80);
+		//valor da parcela seria 2 mil de 160.000 mil em 80 vezes	
+		Assertions.assertEquals(2000.0, f1.quota());
+	}
+	
+	
 }
