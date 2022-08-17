@@ -74,8 +74,7 @@ public class FinancingTests {
 		double newIncome = 5000.0;
 		f1.setIncome(newIncome);
 		
-		Assertions.assertEquals(newIncome,f1.getIncome());
-		
+		Assertions.assertEquals(newIncome,f1.getIncome());		
 		
 	}
 	
@@ -95,6 +94,14 @@ public class FinancingTests {
 		});
 	}
 	
-	
-
+	@Test
+	public void setMonthsShouldChangeMonthsWhenValidadeFinancingWithNewMonths () {
+		
+		Financing f1 = FinancingFactory.createFinancing(5000.0, 250000.0, 80);
+		
+		int newMonths= 80;
+		f1.setMonths(newMonths);
+		
+		Assertions.assertEquals(newMonths, f1.getMonths());
+	}
 }
