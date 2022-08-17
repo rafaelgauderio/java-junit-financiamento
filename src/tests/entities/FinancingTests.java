@@ -104,4 +104,17 @@ public class FinancingTests {
 		
 		Assertions.assertEquals(newMonths, f1.getMonths());
 	}
+	
+	@Test
+	public void setMonthsShouldThrowExceptionWhenNotValidadeFinancingWithNewMonths () {
+		
+		Financing f1 = FinancingFactory.createFinancing(5000.0, 250000.0, 80);
+		
+		int newMonths= 79;		
+		
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			f1.setMonths(newMonths);
+			Assertions.assertEquals(newMonths,f1.getMonths());
+		});
+	}
 }
