@@ -1,6 +1,6 @@
 package application;
 
-import entitites.Financing;
+import entities.Financing;
 
 public class Program {
 
