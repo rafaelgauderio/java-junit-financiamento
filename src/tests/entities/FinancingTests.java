@@ -10,16 +10,20 @@ public class FinancingTests {
 	
 	
 	@Test
-	public void constructorShouldInstiateFinancingWhenValidateFinancing () {		
+	public void constructorShouldInstantiateFinancingWhenValidateFinancing () {	
+		
+		//arrange
 		double income = 5000.0;
 		double totalAmount =200000.0;
 		int months = 80;	
 		
+		//action
 		Financing f1 = FinancingFactory.createFinancing(income, totalAmount, months);		
 		
-		Assertions.assertTrue(f1.getIncome()==5000.0);
-		Assertions.assertEquals(200000, f1.getTotalAmount());
-		Assertions.assertTrue(f1.getMonths()==80);		
+		//assert	
+		Assertions.assertTrue(f1.getIncome()==income);
+		Assertions.assertTrue(f1.getMonths()==months);
+		Assertions.assertEquals(totalAmount, f1.getTotalAmount());
 		
 	}
 	
@@ -31,6 +35,10 @@ public class FinancingTests {
 				
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {				
 			Financing f1 = FinancingFactory.createFinancing(income, totalAmount, months);
+			Assertions.assertTrue(f1.getIncome()==income);
+			Assertions.assertTrue(f1.getMonths()==months);
+			Assertions.assertEquals(totalAmount, f1.getTotalAmount());
+			
 		});		
 	}
 	
@@ -81,7 +89,7 @@ public class FinancingTests {
 	@Test
 	public void setIncomeShouldThrowExceptionWhenValidadeNotFinancingWithNewIncome () {
 		
-		double income = 5001.0;
+		double income = 5000.0;
 		double totalAmount =250000.0;
 		int months = 80;		
 		Financing f1 = FinancingFactory.createFinancing(income, totalAmount, months);	
@@ -99,7 +107,7 @@ public class FinancingTests {
 		
 		Financing f1 = FinancingFactory.createFinancing(5000.0, 250000.0, 80);
 		
-		int newMonths= 80;
+		int newMonths= 81;
 		f1.setMonths(newMonths);
 		
 		Assertions.assertEquals(newMonths, f1.getMonths());
@@ -119,7 +127,7 @@ public class FinancingTests {
 	}
 	
 	@Test
-	public void entryShoudlCalculateEntryWhenValidateFinancing () {
+	public void entryShoudlCalculateEntryCorrectlyWhenValidateFinancing () {
 		
 		Financing f1 = FinancingFactory.createFinancing(5000.0, 200000.0, 80);
 		//20 porcento de 200 mil é 40 mil		
@@ -127,7 +135,7 @@ public class FinancingTests {
 	}
 	
 	@Test
-	public void quotaShouldCalculateQuotaWhenValidateFinancing () {
+	public void quotaShouldCalculateQuotaCorrectlyWhenValidateFinancing () {
 		
 		Financing f1 = FinancingFactory.createFinancing(5000.0, 200000.0, 80);
 		//valor da parcela seria 2 mil de 160.000 mil em 80 vezes	
